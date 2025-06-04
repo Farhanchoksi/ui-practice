@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:ui_project/app/modules/agenda_screen/views/agenda_screen_view.dart';
 import 'package:ui_project/app/modules/profile_agenda/views/profile_agenda_view.dart';
 import 'package:ui_project/app/modules/profile_bookmark/views/profile_bookmark_view.dart';
+import 'package:ui_project/app/modules/profile_connection/controllers/profile_connection_controller.dart';
+import 'package:ui_project/app/modules/profile_network_setting/controllers/profile_network_setting_controller.dart';
 
 import '../controllers/profile_page_controller.dart';
 
@@ -249,64 +251,76 @@ class ProfilePageView extends GetView<ProfilePageController> {
                         ),
                       ),
                       SizedBox(width: Get.width * 0.05),
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.person_2_outlined,
-                            color: HexColor('#333F64'),
-                            size: 30,
-                          ),
-                          Text(
-                            'My Connections',
-                            style: TextStyle(
-                              fontSize: 14,
-                              //fontWeight: FontWeight.bold,
-                              color: HexColor('333F64'),
+                      GestureDetector(
+                        onTap: () {
+                          Get.put(ProfileConnectionController());
+                          Get.toNamed('/profile-connection');
+                        },
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.person_2_outlined,
+                              color: HexColor('#333F64'),
+                              size: 30,
                             ),
-                          ),
-                        ],
+                            Text(
+                              'My Connections',
+                              style: TextStyle(
+                                fontSize: 14,
+                                //fontWeight: FontWeight.bold,
+                                color: HexColor('333F64'),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(height: Get.height * 0.01),
-                Container(
-                  padding: EdgeInsets.all(16),
-                  margin: EdgeInsets.symmetric(horizontal: 16),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: HexColor('#CBDCE6'), width: 1),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                     //SizedBox(width: 10),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.person_add_alt,
-                            color: HexColor('#333F64'),
-                            size: 30,
+                GestureDetector(
+                  onTap: () {
+                    Get.put(ProfileNetworkSettingController());
+                    Get.toNamed('/profile-network-setting');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(16),
+                    margin: EdgeInsets.symmetric(horizontal: 16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: HexColor('#CBDCE6'), width: 1),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                       //SizedBox(width: 10),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.person_add_alt,
+                              color: HexColor('#333F64'),
+                              size: 30,
+                            ),
+                        SizedBox(width: 10),
+                             Text(
+                          'Networking Settings',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: HexColor('333F64'),
                           ),
-                      SizedBox(width: 10),
-                           Text(
-                        'Networking Settings',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: HexColor('333F64'),
                         ),
-                      ),
-                        ],
-                      ),
-                     
-                      //  SizedBox(width: Get.width * 0.2),
-                      Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: HexColor('#333F64'),
-                      ),
-                    ],
+                          ],
+                        ),
+                       
+                        //  SizedBox(width: Get.width * 0.2),
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: HexColor('#333F64'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: Get.height * 0.01),

@@ -4,6 +4,8 @@ import '../modules/Event_page/bindings/event_page_binding.dart';
 import '../modules/Event_page/views/event_page_view.dart';
 import '../modules/Home_page/bindings/home_page_binding.dart';
 import '../modules/Home_page/views/home_page_view.dart';
+import '../modules/Meeting_Availability/bindings/meeting_availability_binding.dart';
+import '../modules/Meeting_Availability/views/meeting_availability_view.dart';
 import '../modules/Network_page/bindings/network_page_binding.dart';
 import '../modules/Network_page/views/network_page_view.dart';
 import '../modules/Network_search_page/bindings/network_search_page_binding.dart';
@@ -18,12 +20,18 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login_page/bindings/login_page_binding.dart';
 import '../modules/login_page/views/login_page_view.dart';
+import '../modules/network_privacy_setting/bindings/network_privacy_setting_binding.dart';
+import '../modules/network_privacy_setting/views/network_privacy_setting_view.dart';
 import '../modules/otpverification/bindings/otpverification_binding.dart';
 import '../modules/otpverification/views/otpverification_view.dart';
 import '../modules/profile_agenda/bindings/profile_agenda_binding.dart';
 import '../modules/profile_agenda/views/profile_agenda_view.dart';
 import '../modules/profile_bookmark/bindings/profile_bookmark_binding.dart';
 import '../modules/profile_bookmark/views/profile_bookmark_view.dart';
+import '../modules/profile_connection/bindings/profile_connection_binding.dart';
+import '../modules/profile_connection/views/profile_connection_view.dart';
+import '../modules/profile_network_setting/bindings/profile_network_setting_binding.dart';
+import '../modules/profile_network_setting/views/profile_network_setting_view.dart';
 import '../modules/profile_page/bindings/profile_page_binding.dart';
 import '../modules/profile_page/views/profile_page_view.dart';
 import '../modules/search_screen/bindings/search_screen_binding.dart';
@@ -114,8 +122,28 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROFILE_AGENDA,
-      page: () =>  ProfileAgendaView(),
+      page: () => ProfileAgendaView(),
       binding: ProfileAgendaBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE_CONNECTION,
+      page: () => const ProfileConnectionView(),
+      binding: ProfileConnectionBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE_NETWORK_SETTING,
+      page: () => const ProfileNetworkSettingView(),
+      binding: ProfileNetworkSettingBinding(),
+    ),
+    GetPage(
+      name: _Paths.NETWORK_PRIVACY_SETTING,
+      page: () => const NetworkPrivacySettingView(),
+      binding: NetworkPrivacySettingBinding(),
+    ),
+    GetPage(
+      name: _Paths.MEETING_AVAILABILITY,
+      page: () => const MeetingAvailabilityView(),
+      binding: MeetingAvailabilityBinding(),
     ),
   ];
 }

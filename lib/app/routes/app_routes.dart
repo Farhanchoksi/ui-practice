@@ -19,6 +19,10 @@ abstract class Routes {
   static const PROFILE_PAGE = _Paths.PROFILE_PAGE;
   static const PROFILE_BOOKMARK = _Paths.PROFILE_BOOKMARK;
   static const PROFILE_AGENDA = _Paths.PROFILE_AGENDA;
+  static const PROFILE_CONNECTION = _Paths.PROFILE_CONNECTION;
+  static const PROFILE_NETWORK_SETTING = _Paths.PROFILE_NETWORK_SETTING;
+  static const NETWORK_PRIVACY_SETTING = _Paths.NETWORK_PRIVACY_SETTING;
+  static const MEETING_AVAILABILITY = _Paths.MEETING_AVAILABILITY;
 }
 
 abstract class _Paths {
@@ -39,4 +43,8 @@ abstract class _Paths {
   static const PROFILE_PAGE = '/profile-page';
   static const PROFILE_BOOKMARK = '/profile-bookmark';
   static const PROFILE_AGENDA = '/profile-agenda';
+  static const PROFILE_CONNECTION = '/profile-connection';
+  static const PROFILE_NETWORK_SETTING = '/profile-network-setting';
+  static const NETWORK_PRIVACY_SETTING = '/network-privacy-setting';
+  static const MEETING_AVAILABILITY = '/meeting-availability';
 }
