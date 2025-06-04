@@ -149,7 +149,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.AHMED_PROFILE,
-      page: () => const AhmedProfileView(),
+      page: () =>  AhmedProfileView(),
       binding: AhmedProfileBinding(),
     ),
   ];
