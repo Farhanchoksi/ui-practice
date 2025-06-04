@@ -69,23 +69,7 @@ void loadDummyData() {
           ],
           'about' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
         },
-        {
-          'name': 'Flutter Development',
-          'title': 'Technical Discussion',
-          'image': 'https://randomuser.me/api/portraits/men/22.jpg',
-          'type': 'session',
-          'tags': ['IT', 'Development', 'Mobile'],
-          'actions': [
-            {'type': 'message', 'label': 'Message', 'icon': 'message_outlined'},
-            {
-              'type': 'meet',
-              'label': 'Meet',
-              'icon': 'calendar_today_outlined',
-            },
-            {'type': 'bookmark', 'label': '', 'icon': 'bookmark_border'},
-          ],
-          'about' : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
-        },
+       
       ];
 
       // Apply current filter
