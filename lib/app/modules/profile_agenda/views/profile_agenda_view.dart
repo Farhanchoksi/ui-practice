@@ -41,7 +41,7 @@ class _ProfileAgendaViewState extends State<ProfileAgendaView> {
           },
         ),
         title: Text(
-          'My Bookmarks',
+          'My Agenda',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: HexColor('333F64'),
@@ -82,13 +82,13 @@ class _ProfileAgendaViewState extends State<ProfileAgendaView> {
                       // prefixIcon: const Icon(Icons.access_time, color: Color(0xFF333F64)),
                        filled: true,
                        fillColor: Colors.white,
-                       contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+                       contentPadding:  EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
                        enabledBorder: OutlineInputBorder(
-                         borderRadius: BorderRadius.circular(10),
+                         borderRadius: BorderRadius.circular(10.r),
                          borderSide: const BorderSide(color: Color(0xFFE6EDF5)),
                        ),
                        focusedBorder: OutlineInputBorder(
-                         borderRadius: BorderRadius.circular(10),
+                         borderRadius: BorderRadius.circular(10.r),
                          borderSide: const BorderSide(color: Color(0xFF333F64)),
                        ),
                      ),

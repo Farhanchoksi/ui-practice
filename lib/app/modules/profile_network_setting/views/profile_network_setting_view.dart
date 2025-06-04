@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -37,6 +39,7 @@ class ProfileNetworkSettingView
               child: Stack(
                 alignment: Alignment.center,
                 children: [
+                  
                   // Centered title
                   Positioned.fill(
                     child: Center(
@@ -64,102 +67,149 @@ class ProfileNetworkSettingView
           ),
         ),
       ),
-      body: Column(
+      body: Stack(
         children: [
-          20.verticalSpace,
-          GestureDetector(
-                  onTap: () {
-                   Get.put(NetworkPrivacySettingController());
-                    Get.toNamed('/network-privacy-setting');
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(16).r,
-                    margin: EdgeInsets.symmetric(horizontal: 16).w,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: HexColor('#CBDCE6'), width: 1),
-                      borderRadius: BorderRadius.circular(12).r,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                       //SizedBox(width: 10),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.edit_calendar_outlined,
-                              color: HexColor('#333F64'),
-                              size: 30,
-                            ),
-                       // SizedBox(width: 10),
-                       10.horizontalSpace,
-                             Text(
-                          'Networking Privacy Settings',
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.bold,
-                            color: HexColor('333F64'),
-                          ),
+           Positioned(
+            top: -80,
+            right: -60,
+            child: Container(
+              width: 400,
+              height: 400,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [HexColor('#CBDCE6'), Colors.transparent],
+                  radius: 0.8,
+                ),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                child: Container(color: const Color.fromARGB(221, 245, 245, 245)),
+              ),
+            ),
+          ),
+
+          // Second blurred ellipse (bottom-left)
+          Positioned(
+            top: 230,
+            right: -40,
+            child: Container(
+              width: 450,
+              height: 420,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    HexColor('#CBDCE6'),
+                    const Color.fromARGB(208, 255, 255, 255),
+                  ],
+                  radius: 0.9,
+                ),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+                child: Container(color: Colors.transparent),
+              ),
+            ),
+          ),
+          Column(
+            children: [
+              20.verticalSpace,
+              GestureDetector(
+                      onTap: () {
+                       Get.put(NetworkPrivacySettingController());
+                        Get.toNamed('/network-privacy-setting');
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(16).r,
+                        margin: EdgeInsets.symmetric(horizontal: 16).w,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(color: HexColor('#CBDCE6'), width: 1),
+                          borderRadius: BorderRadius.circular(12).r,
                         ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                           //SizedBox(width: 10),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.edit_calendar_outlined,
+                                  color: HexColor('#333F64'),
+                                  size: 30,
+                                ),
+                           // SizedBox(width: 10),
+                           10.horizontalSpace,
+                                 Text(
+                              'Networking Privacy Settings',
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                                color: HexColor('333F64'),
+                              ),
+                            ),
+                              ],
+                            ),
+                           
+                            //  SizedBox(width: Get.width * 0.2),
+                            Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              color: HexColor('#333F64'),
+                            ),
                           ],
                         ),
-                       
-                        //  SizedBox(width: Get.width * 0.2),
-                        Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          color: HexColor('#333F64'),
+                      ),
+                    ),
+                    10.verticalSpace,
+              GestureDetector(
+                      onTap: () {
+                        Get.put(MeetingAvailabilityController());
+                        Get.toNamed('/meeting-availability');
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(16).r,
+                        margin: EdgeInsets.symmetric(horizontal: 16).w,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(color: HexColor('#CBDCE6'), width: 1),
+                          borderRadius: BorderRadius.circular(12).r,
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                10.verticalSpace,
-          GestureDetector(
-                  onTap: () {
-                    Get.put(MeetingAvailabilityController());
-                    Get.toNamed('/meeting-availability');
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(16).r,
-                    margin: EdgeInsets.symmetric(horizontal: 16).w,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: HexColor('#CBDCE6'), width: 1),
-                      borderRadius: BorderRadius.circular(12).r,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                       //SizedBox(width: 10),
-                        Row(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Icon(
-                              Icons.content_paste_search_outlined,
-                              color: HexColor('#333F64'),
-                              size: 30,
+                           //SizedBox(width: 10),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.content_paste_search_outlined,
+                                  color: HexColor('#333F64'),
+                                  size: 30,
+                                ),
+                           // SizedBox(width: 10),
+                           10.horizontalSpace,
+                                 Text(
+                              'Meeting Availability',
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold,
+                                color: HexColor('333F64'),
+                              ),
                             ),
-                       // SizedBox(width: 10),
-                       10.horizontalSpace,
-                             Text(
-                          'Meeting Availability',
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.bold,
-                            color: HexColor('333F64'),
-                          ),
-                        ),
+                              ],
+                            ),
+                           
+                            //  SizedBox(width: Get.width * 0.2),
+                            Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              color: HexColor('#333F64'),
+                            ),
                           ],
                         ),
-                       
-                        //  SizedBox(width: Get.width * 0.2),
-                        Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          color: HexColor('#333F64'),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
+            ],
+          ),
         ],
       )
     );

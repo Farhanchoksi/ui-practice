@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/Ahmed_profile/bindings/ahmed_profile_binding.dart';
+import '../modules/Ahmed_profile/views/ahmed_profile_view.dart';
 import '../modules/Event_page/bindings/event_page_binding.dart';
 import '../modules/Event_page/views/event_page_view.dart';
 import '../modules/Home_page/bindings/home_page_binding.dart';
@@ -144,6 +146,11 @@ class AppPages {
       name: _Paths.MEETING_AVAILABILITY,
       page: () => const MeetingAvailabilityView(),
       binding: MeetingAvailabilityBinding(),
+    ),
+    GetPage(
+      name: _Paths.AHMED_PROFILE,
+      page: () => const AhmedProfileView(),
+      binding: AhmedProfileBinding(),
     ),
   ];
 }

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -94,80 +96,127 @@ class NetworkPrivacySettingView extends GetView<NetworkPrivacySettingController>
         ),
       ),
       body: 
-      Obx(() {
-        return Column(
-          children: [
-            50.verticalSpace,
-            Container(
-              //  padding: EdgeInsets.all(8).r,
-              margin: EdgeInsets.symmetric(horizontal: 16).w,
+      Stack(
+        children: [
+           Positioned(
+            top: -80,
+            right: -60,
+            child: Container(
+              width: 400,
+              height: 400,
               decoration: BoxDecoration(
-                color: Colors.white,
-                border:
-                    controller.selectedborder.value == 1
-                        ? Border.all(color: HexColor('#333F64'), width: 1)
-                        : Border.all(color: HexColor('#CBDCE6'), width: 1),
-                borderRadius: BorderRadius.circular(12).r,
-              ),
-              child: ListTile(
-                leading: _CircleCheckbox(isChecked: controller.selectedcheckbox.value == 1),
-                title: Text("Public", style: TextStyle(color: HexColor('#333F64'), fontSize: 16.sp, fontWeight: FontWeight.bold)),
-                subtitle: Text(
-                  "Anyone can connect, send message and request meeting with you",
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [HexColor('#CBDCE6'), Colors.transparent],
+                  radius: 0.8,
                 ),
-                onTap: () {
-                  controller.onCheckboxChange(1, true);
-                },
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                child: Container(color: const Color.fromARGB(221, 245, 245, 245)),
               ),
             ),
-            10.verticalSpace,
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 16).w,
+          ),
+
+          // Second blurred ellipse (bottom-left)
+          Positioned(
+            top: 230,
+            right: -40,
+            child: Container(
+              width: 450,
+              height: 420,
               decoration: BoxDecoration(
-                color: Colors.white,
-                border:
-                    controller.selectedborder.value == 2
-                        ? Border.all(color: HexColor('#333F64'), width: 1)
-                        : Border.all(color: HexColor('#CBDCE6'), width: 1),
-                borderRadius: BorderRadius.circular(12).r,
-              ),
-              child: ListTile(
-                leading: _CircleCheckbox(isChecked: controller.selectedcheckbox.value == 2),
-                title: Text("By Request", style: TextStyle(color: HexColor('#333F64'), fontSize: 16.sp, fontWeight: FontWeight.bold)),
-                subtitle: Text(
-                  "No one can connect, send message and request meeting with you unless he requested to connect with you",
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    HexColor('#CBDCE6'),
+                    const Color.fromARGB(208, 255, 255, 255),
+                  ],
+                  radius: 0.9,
                 ),
-                onTap: () {
-                  controller.onCheckboxChange(2, true);
-                },
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+                child: Container(color: Colors.transparent),
               ),
             ),
-            10.verticalSpace,
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 16).w,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border:
-                    controller.selectedborder.value == 2
-                        ? Border.all(color: HexColor('#333F64'), width: 1)
-                        : Border.all(color: HexColor('#CBDCE6'), width: 1),
-                borderRadius: BorderRadius.circular(12).r,
-              ),
-              child: ListTile(
-                leading: _CircleCheckbox(isChecked: controller.selectedcheckbox.value == 3),
-                title: Text("Private", style: TextStyle(color: HexColor('#333F64'), fontSize: 16.sp, fontWeight: FontWeight.bold)),
-                subtitle: Text(
-                  "No one can connect, send message and request meeting with you",
+          ),
+          Obx(() {
+            return Column(
+              children: [
+                50.verticalSpace,
+                Container(
+                  //  padding: EdgeInsets.all(8).r,
+                  margin: EdgeInsets.symmetric(horizontal: 16).w,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border:
+                        controller.selectedborder.value == 1
+                            ? Border.all(color: HexColor('#333F64'), width: 1)
+                            : Border.all(color: HexColor('#CBDCE6'), width: 1),
+                    borderRadius: BorderRadius.circular(12).r,
+                  ),
+                  child: ListTile(
+                    leading: _CircleCheckbox(isChecked: controller.selectedcheckbox.value == 1),
+                    title: Text("Public", style: TextStyle(color: HexColor('#333F64'), fontSize: 16.sp, fontWeight: FontWeight.bold)),
+                    subtitle: Text(
+                      "Anyone can connect, send message and request meeting with you",
+                    ),
+                    onTap: () {
+                      controller.onCheckboxChange(1, true);
+                    },
+                  ),
                 ),
-                onTap: () {
-                  controller.onCheckboxChange(3, true);
-                },
-              ),
-            ),
-            
-          ],
-        );
-      }),
+                10.verticalSpace,
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16).w,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border:
+                        controller.selectedborder.value == 2
+                            ? Border.all(color: HexColor('#333F64'), width: 1)
+                            : Border.all(color: HexColor('#CBDCE6'), width: 1),
+                    borderRadius: BorderRadius.circular(12).r,
+                  ),
+                  child: ListTile(
+                    leading: _CircleCheckbox(isChecked: controller.selectedcheckbox.value == 2),
+                    title: Text("By Request", style: TextStyle(color: HexColor('#333F64'), fontSize: 16.sp, fontWeight: FontWeight.bold)),
+                    subtitle: Text(
+                      "No one can connect, send message and request meeting with you unless he requested to connect with you",
+                    ),
+                    onTap: () {
+                      controller.onCheckboxChange(2, true);
+                    },
+                  ),
+                ),
+                10.verticalSpace,
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16).w,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border:
+                        controller.selectedborder.value == 2
+                            ? Border.all(color: HexColor('#333F64'), width: 1)
+                            : Border.all(color: HexColor('#CBDCE6'), width: 1),
+                    borderRadius: BorderRadius.circular(12).r,
+                  ),
+                  child: ListTile(
+                    leading: _CircleCheckbox(isChecked: controller.selectedcheckbox.value == 3),
+                    title: Text("Private", style: TextStyle(color: HexColor('#333F64'), fontSize: 16.sp, fontWeight: FontWeight.bold)),
+                    subtitle: Text(
+                      "No one can connect, send message and request meeting with you",
+                    ),
+                    onTap: () {
+                      controller.onCheckboxChange(3, true);
+                    },
+                  ),
+                ),
+                
+              ],
+            );
+          }),
+        ],
+      ),
     );
   }
 }

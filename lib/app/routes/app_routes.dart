@@ -23,6 +23,7 @@ abstract class Routes {
   static const PROFILE_NETWORK_SETTING = _Paths.PROFILE_NETWORK_SETTING;
   static const NETWORK_PRIVACY_SETTING = _Paths.NETWORK_PRIVACY_SETTING;
   static const MEETING_AVAILABILITY = _Paths.MEETING_AVAILABILITY;
+  static const AHMED_PROFILE = _Paths.AHMED_PROFILE;
 }
 
 abstract class _Paths {
@@ -47,4 +48,5 @@ abstract class _Paths {
   static const PROFILE_NETWORK_SETTING = '/profile-network-setting';
   static const NETWORK_PRIVACY_SETTING = '/network-privacy-setting';
   static const MEETING_AVAILABILITY = '/meeting-availability';
+  static const AHMED_PROFILE = '/ahmed-profile';
 }

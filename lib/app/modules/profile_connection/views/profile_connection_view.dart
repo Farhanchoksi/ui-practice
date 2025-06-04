@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -61,22 +63,69 @@ class ProfileConnectionView extends GetView<ProfileConnectionController> {
         ),
       ),
       body: 
-          Obx(() {
-            return ListView.builder(
-                          itemCount: controller.profileUsers.length,
-                          padding: EdgeInsets.symmetric(vertical: 8),
-                          itemBuilder: (context, index) {
-                            final user = controller.profileUsers[index];
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16.0,
-                                vertical: 8.0,
-                              ),
-                              child: _buildUserCard(user),
+          Stack(
+            children: [
+               Positioned(
+            top: -80,
+            right: -60,
+            child: Container(
+              width: 400,
+              height: 400,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [HexColor('#CBDCE6'), Colors.transparent],
+                  radius: 0.8,
+                ),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                child: Container(color: const Color.fromARGB(221, 245, 245, 245)),
+              ),
+            ),
+          ),
+
+          // Second blurred ellipse (bottom-left)
+          Positioned(
+            top: 230,
+            right: -40,
+            child: Container(
+              width: 450,
+              height: 420,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    HexColor('#CBDCE6'),
+                    const Color.fromARGB(208, 255, 255, 255),
+                  ],
+                  radius: 0.9,
+                ),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+                child: Container(color: Colors.transparent),
+              ),
+            ),
+          ),
+              Obx(() {
+                return ListView.builder(
+                              itemCount: controller.profileUsers.length,
+                              padding: EdgeInsets.symmetric(vertical: 8),
+                              itemBuilder: (context, index) {
+                                final user = controller.profileUsers[index];
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0,
+                                    vertical: 8.0,
+                                  ),
+                                  child: _buildUserCard(user),
+                                );
+                              },
                             );
-                          },
-                        );
-          },),
+              },),
+            ],
+          ),
         
     );
   }

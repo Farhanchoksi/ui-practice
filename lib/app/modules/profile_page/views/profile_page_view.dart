@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:ui_project/app/modules/Ahmed_profile/controllers/ahmed_profile_controller.dart';
 import 'package:ui_project/app/modules/agenda_screen/views/agenda_screen_view.dart';
 import 'package:ui_project/app/modules/profile_agenda/views/profile_agenda_view.dart';
 import 'package:ui_project/app/modules/profile_bookmark/views/profile_bookmark_view.dart';
@@ -324,44 +325,50 @@ class ProfilePageView extends GetView<ProfilePageController> {
                   ),
                 ),
                 SizedBox(height: Get.height * 0.01),
-                Container(
-                  padding: EdgeInsets.all(16),
-                  margin: EdgeInsets.symmetric(horizontal: 16),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: HexColor('#CBDCE6'), width: 1),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      //SizedBox(width: 10),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.headphones_outlined,
-                            color: HexColor('#333F64'),
-                            size: 30,
+                GestureDetector(
+                  onTap: () {
+                    Get.put(AhmedProfileController());
+                    Get.toNamed('/ahmed-profile');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(16),
+                    margin: EdgeInsets.symmetric(horizontal: 16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: HexColor('#CBDCE6'), width: 1),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        //SizedBox(width: 10),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.headphones_outlined,
+                              color: HexColor('#333F64'),
+                              size: 30,
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                          'Help & Support',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: HexColor('333F64'),
                           ),
-                          SizedBox(width: 10),
-                          Text(
-                        'Help & Support',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: HexColor('333F64'),
                         ),
-                      ),
-                        ],
-                      ),
-                      //  SizedBox(width: 10),
-                      
-                      //  SizedBox(width: Get.width * 0.31),
-                      Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: HexColor('#333F64'),
-                      ),
-                    ],
+                          ],
+                        ),
+                        //  SizedBox(width: 10),
+                        
+                        //  SizedBox(width: Get.width * 0.31),
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: HexColor('#333F64'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
