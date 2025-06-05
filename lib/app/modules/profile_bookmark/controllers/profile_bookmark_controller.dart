@@ -97,7 +97,10 @@ class ProfileBookmarkController extends GetxController {
               'icon': 'calendar_today_outlined',
             },
             {'type': 'bookmark', 'label': '', 'icon': 'bookmark_border'},
+            
+            
           ],
+          'about' : 'partners store and access personal data, like browsing data or unique identifiers, on your device. Selecting I Accept enables tracking technologies to support the purposes shown under we and our partners process data to provide.'
         },
         {
           'name': 'Ahmad Qurany',
@@ -111,6 +114,7 @@ class ProfileBookmarkController extends GetxController {
             //  {'type': 'meet', 'label': 'Meet', 'icon': 'calendar_today_outlined'},
             {'type': 'bookmark', 'label': '', 'icon': 'bookmark_border'},
           ],
+          'about' : 'partners store and access personal data, like browsing data or unique identifiers, on your device. Selecting I Accept enables tracking technologies to support the purposes shown under we and our partners process data to provide.'
         },
         {
           'name': 'Sarah Johnson',
@@ -128,6 +132,7 @@ class ProfileBookmarkController extends GetxController {
             },
             {'type': 'bookmark', 'label': '', 'icon': 'bookmark_border'},
           ],
+          'about' : 'partners store and access personal data, like browsing data or unique identifiers, on your device. Selecting I Accept enables tracking technologies to support the purposes shown under we and our partners process data to provide.'
         },
         {
           'name': 'Michael Chen',
@@ -145,6 +150,7 @@ class ProfileBookmarkController extends GetxController {
             },
             {'type': 'bookmark', 'label': '', 'icon': 'bookmark_border'},
           ],
+          'about' : 'partners store and access personal data, like browsing data or unique identifiers, on your device. Selecting I Accept enables tracking technologies to support the purposes shown under we and our partners process data to provide.'
         },
         {
           'name': 'Flutter Development',
@@ -161,6 +167,7 @@ class ProfileBookmarkController extends GetxController {
             },
             {'type': 'bookmark', 'label': '', 'icon': 'bookmark_border'},
           ],
+          'about' : 'partners store and access personal data, like browsing data or unique identifiers, on your device. Selecting I Accept enables tracking technologies to support the purposes shown under we and our partners process data to provide.'
         },
         {
           'name': 'UI/UX Workshop',
@@ -177,6 +184,7 @@ class ProfileBookmarkController extends GetxController {
             }, */
             {'type': 'bookmark', 'label': '', 'icon': 'bookmark_border'},
           ],
+          'about' : 'partners store and access personal data, like browsing data or unique identifiers, on your device. Selecting I Accept enables tracking technologies to support the purposes shown under we and our partners process data to provide.'
         },
       ];
 

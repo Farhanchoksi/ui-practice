@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/Ahmed_profile/bindings/ahmed_profile_binding.dart';
 import '../modules/Ahmed_profile/views/ahmed_profile_view.dart';
+import '../modules/Edit_profile/bindings/edit_profile_binding.dart';
+import '../modules/Edit_profile/views/edit_profile_view.dart';
 import '../modules/Event_page/bindings/event_page_binding.dart';
 import '../modules/Event_page/views/event_page_view.dart';
 import '../modules/Home_page/bindings/home_page_binding.dart';
@@ -149,8 +151,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.AHMED_PROFILE,
-      page: () =>  AhmedProfileView(),
+      page: () => AhmedProfileView(),
       binding: AhmedProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PROFILE,
+      page: () => const EditProfileView(),
+      binding: EditProfileBinding(),
     ),
   ];
 }

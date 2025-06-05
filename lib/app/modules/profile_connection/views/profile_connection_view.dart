@@ -39,7 +39,7 @@ class ProfileConnectionView extends GetView<ProfileConnectionController> {
                   Positioned.fill(
                     child: Center(
                       child: Text(
-                        'My Bookmarks',
+                        'My Connection',
                         style: TextStyle(
                           color: Colors.black87,
                           fontWeight: FontWeight.bold,

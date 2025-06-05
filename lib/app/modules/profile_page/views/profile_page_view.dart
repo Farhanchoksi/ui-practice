@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:ui_project/app/modules/Ahmed_profile/controllers/ahmed_profile_controller.dart';
+import 'package:ui_project/app/modules/Edit_profile/controllers/edit_profile_controller.dart';
 import 'package:ui_project/app/modules/agenda_screen/views/agenda_screen_view.dart';
 import 'package:ui_project/app/modules/profile_agenda/views/profile_agenda_view.dart';
 import 'package:ui_project/app/modules/profile_bookmark/views/profile_bookmark_view.dart';
@@ -181,7 +182,12 @@ class ProfilePageView extends GetView<ProfilePageController> {
                       ),
                     ),
                     SizedBox(width: 16),
-                    Icon(Icons.edit, color: HexColor('#333F64')),
+                    GestureDetector(
+                      onTap: () {
+                        Get.put(EditProfileController());
+                        Get.toNamed('/edit-profile');
+                      },
+                      child: Icon(Icons.edit, color: HexColor('#333F64'))),
                   ],
                 ),
                 Center(
