@@ -144,7 +144,7 @@ class _LoginPageViewState extends State<LoginPageView> {
                   SizedBox(height: Get.height * 0.02),
                   TextButton(
                     onPressed: () {
-                      Get.toNamed('/signup-page');
+                      Get.offNamed('/signup-page');
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.white,

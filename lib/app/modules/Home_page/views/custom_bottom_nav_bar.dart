@@ -68,7 +68,7 @@ class CustomBottomNavBar extends StatelessWidget {
             child:
                 isSelected
                     ? Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                     // mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(icon, size: 22, color: HexColor('333F64')),

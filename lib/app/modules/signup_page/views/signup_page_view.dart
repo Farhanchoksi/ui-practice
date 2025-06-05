@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -11,101 +13,148 @@ class SignupPageView extends GetView<SignupPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: ListView(
-          children: [
-            Image.asset(
-              'assets/images/Logo.png',
-              height: 50,
-              width: 50,
-              alignment: Alignment.topLeft,
+      
+      body: Stack(
+        children: [
+          Positioned(
+            top: -80,
+            right: -60,
+            child: Container(
+              width: 400,
+              height: 400,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [HexColor('#CBDCE6'), Colors.transparent],
+                  radius: 0.8,
+                ),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                child: Container(color: const Color.fromARGB(221, 245, 245, 245)),
+              ),
             ),
-              SizedBox(height: Get.height * 0.03),
-             Text(
-                      'Sign Up Form',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold , color: HexColor('#333F64')),
-                    ),
-              SizedBox(height: Get.height * 0.03),
-            CustomTextField(hinttext: 'First name', icon: Icons.person, keyboardType: TextInputType.name),
-            SizedBox(height: Get.height * 0.03),
-            CustomTextField(hinttext: 'Last name', icon: Icons.person, keyboardType: TextInputType.name),
-            SizedBox(height: Get.height * 0.03),
-            CustomTextField(hinttext: 'Email', icon: Icons.email, keyboardType: TextInputType.name),
-            SizedBox(height: Get.height * 0.03),
-            CustomTextField(hinttext: 'Mobile Number', icon: Icons.phone, keyboardType: TextInputType.name),
-            SizedBox(height: Get.height * 0.03),
-            CustomTextField(hinttext: 'Company Name', icon: Icons.cabin, keyboardType: TextInputType.name),
-            SizedBox(height: Get.height * 0.03),
-            CustomTextField(hinttext: 'Position', icon: Icons.person_pin_circle_outlined, keyboardType: TextInputType.name),
-            SizedBox(height: Get.height * 0.06),
-            ElevatedButton(
-                      onPressed: () {
-                        Get.bottomSheet(BottomSheet(onClosing: () {
-                              Get.back();
-                            },  builder: (context) {
-                              return Container(
-                                height: Get.height * 0.3,
-                                width: Get.width,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20)
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(Icons.check_circle_outline_outlined , size: 110, color: HexColor('#333F64'),),
-                                    Text('Your sign up form has been submitted successfully',
-                                    style: TextStyle(
-                                      color: HexColor('#333F64'),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 19
-                                    ),
-                                    ),
-                                    
-                                  ],
-                                ),
-                              );
-                            },));
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: HexColor('#333F64'),
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+          ),
+
+          // Second blurred ellipse (bottom-left)
+          Positioned(
+            top: 230,
+            right: -40,
+            child: Container(
+              width: 450,
+              height: 420,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    HexColor('#CBDCE6'),
+                    const Color.fromARGB(208, 255, 255, 255),
+                  ],
+                  radius: 0.9,
+                ),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+                child: Container(color: Colors.transparent),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: ListView(
+              children: [
+                Image.asset(
+                  'assets/images/Logo.png',
+                  height: 50,
+                  width: 50,
+                  alignment: Alignment.topLeft,
+                ),
+                  SizedBox(height: Get.height * 0.03),
+                 Text(
+                          'Sign Up Form',
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold , color: HexColor('#333F64')),
                         ),
-                      ),
-                      child: const Text(
-                        'Next',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-        
+                  SizedBox(height: Get.height * 0.03),
+                CustomTextField(hinttext: 'First name', icon: Icons.person, keyboardType: TextInputType.name),
                 SizedBox(height: Get.height * 0.03),
-                    Center(
-                      child: TextButton.icon(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.headset_mic_outlined,
-                          color: HexColor('#2D3A66'),
-                        ),
-                        label: Text(
-                          'Contact Support',
-                          style: TextStyle(
-                            color: HexColor('#2D3A66'),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16
+                CustomTextField(hinttext: 'Last name', icon: Icons.person, keyboardType: TextInputType.name),
+                SizedBox(height: Get.height * 0.03),
+                CustomTextField(hinttext: 'Email', icon: Icons.email, keyboardType: TextInputType.name),
+                SizedBox(height: Get.height * 0.03),
+                CustomTextField(hinttext: 'Mobile Number', icon: Icons.phone, keyboardType: TextInputType.name),
+                SizedBox(height: Get.height * 0.03),
+                CustomTextField(hinttext: 'Company Name', icon: Icons.cabin, keyboardType: TextInputType.name),
+                SizedBox(height: Get.height * 0.03),
+                CustomTextField(hinttext: 'Position', icon: Icons.person_pin_circle_outlined, keyboardType: TextInputType.name),
+                SizedBox(height: Get.height * 0.06),
+                ElevatedButton(
+                          onPressed: () {
+                            Get.bottomSheet(BottomSheet(onClosing: () {
+                                  Get.back();
+                                },  builder: (context) {
+                                  return Container(
+                                    height: Get.height * 0.3,
+                                    width: Get.width,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20)
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.check_circle_outline_outlined , size: 110, color: HexColor('#333F64'),),
+                                        Text('Your sign up form has been submitted successfully',
+                                        style: TextStyle(
+                                          color: HexColor('#333F64'),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 19
+                                        ),
+                                        ),
+                                        
+                                      ],
+                                    ),
+                                  );
+                                },));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: HexColor('#333F64'),
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: const Text(
+                            'Next',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-          ],
-        ),
+            
+                    SizedBox(height: Get.height * 0.03),
+                        Center(
+                          child: TextButton.icon(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.headset_mic_outlined,
+                              color: HexColor('#2D3A66'),
+                            ),
+                            label: Text(
+                              'Contact Support',
+                              style: TextStyle(
+                                color: HexColor('#2D3A66'),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16
+                              ),
+                            ),
+                          ),
+                        ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
