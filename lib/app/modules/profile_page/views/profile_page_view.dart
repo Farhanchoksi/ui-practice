@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:ui_project/app/modules/Ahmed_profile/controllers/ahmed_profile_controller.dart';
@@ -92,7 +93,9 @@ class ProfilePageView extends GetView<ProfilePageController> {
               ),
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
-                child: Container(color: const Color.fromARGB(221, 245, 245, 245)),
+                child: Container(
+                  color: const Color.fromARGB(221, 245, 245, 245),
+                ),
               ),
             ),
           ),
@@ -128,7 +131,7 @@ class ProfilePageView extends GetView<ProfilePageController> {
                   child: Stack(
                     fit: StackFit.loose,
                     alignment: Alignment.topCenter,
-          
+
                     children: [
                       Positioned(
                         top: 100,
@@ -152,7 +155,7 @@ class ProfilePageView extends GetView<ProfilePageController> {
                           ),
                         ),
                       ),
-          
+
                       Positioned(
                         left: MediaQuery.of(context).size.width * 0.33,
                         child: Container(
@@ -166,7 +169,7 @@ class ProfilePageView extends GetView<ProfilePageController> {
                     ],
                   ),
                 ),
-          
+
                 // SizedBox(height: Get.height * 0.01),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -187,7 +190,8 @@ class ProfilePageView extends GetView<ProfilePageController> {
                         Get.put(EditProfileController());
                         Get.toNamed('/edit-profile');
                       },
-                      child: Icon(Icons.edit, color: HexColor('#333F64'))),
+                      child: Icon(Icons.edit, color: HexColor('#333F64')),
+                    ),
                   ],
                 ),
                 Center(
@@ -209,79 +213,81 @@ class ProfilePageView extends GetView<ProfilePageController> {
                     border: Border.all(color: HexColor('#CBDCE6'), width: 1),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Get.to(ProfileBookmarkView());
-                            },
-                            child: Icon(
-                              Icons.bookmark_border,
-                              color: HexColor('#333F64'),
-                              size: 30,
-                            ),
-                          ),
-                          Text(
-                            'My Bookmarks',
-                            style: TextStyle(
-                              fontSize: 14,
-                              // fontWeight: FontWeight.bold,
-                              color: HexColor('333F64'),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(width: Get.width * 0.05),
-                      GestureDetector(
-                        onTap: () {
-                          Get.to(()=> ProfileAgendaView());
-                        },
-                        child: Column(
+                  child: Flexible(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
                           children: [
-                            Icon(
-                              Icons.calendar_month,
-                              color: HexColor('#333F64'),
-                              size: 30,
+                            GestureDetector(
+                              onTap: () {
+                                Get.to(ProfileBookmarkView());
+                              },
+                              child: Icon(
+                                Icons.bookmark_border,
+                                color: HexColor('#333F64'),
+                                size: 30.sp,
+                              ),
                             ),
                             Text(
-                              'My Agenda',
+                              'My Bookmarks',
                               style: TextStyle(
-                                fontSize: 14,
-                                //fontWeight: FontWeight.bold,
+                                fontSize: 14.sp,
+                                // fontWeight: FontWeight.bold,
                                 color: HexColor('333F64'),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      SizedBox(width: Get.width * 0.05),
-                      GestureDetector(
-                        onTap: () {
-                          Get.put(ProfileConnectionController());
-                          Get.toNamed('/profile-connection');
-                        },
-                        child: Column(
-                          children: [
-                            Icon(
-                              Icons.person_2_outlined,
-                              color: HexColor('#333F64'),
-                              size: 30,
-                            ),
-                            Text(
-                              'My Connections',
-                              style: TextStyle(
-                                fontSize: 14,
-                                //fontWeight: FontWeight.bold,
-                                color: HexColor('333F64'),
+                        SizedBox(width: Get.width * 0.05),
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(() => ProfileAgendaView());
+                          },
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.calendar_month,
+                                color: HexColor('#333F64'),
+                                size: 30.sp,
                               ),
-                            ),
-                          ],
+                              Text(
+                                'My Agenda',
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  //fontWeight: FontWeight.bold,
+                                  color: HexColor('333F64'),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                        SizedBox(width: Get.width * 0.05),
+                        GestureDetector(
+                          onTap: () {
+                            Get.put(ProfileConnectionController());
+                            Get.toNamed('/profile-connection');
+                          },
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.person_2_outlined,
+                                color: HexColor('#333F64'),
+                                size: 30.sp,
+                              ),
+                              Text(
+                                'My Connections',
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  //fontWeight: FontWeight.bold,
+                                  color: HexColor('333F64'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: Get.height * 0.01),
@@ -301,7 +307,7 @@ class ProfilePageView extends GetView<ProfilePageController> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                       //SizedBox(width: 10),
+                        //SizedBox(width: 10),
                         Row(
                           children: [
                             Icon(
@@ -309,18 +315,18 @@ class ProfilePageView extends GetView<ProfilePageController> {
                               color: HexColor('#333F64'),
                               size: 30,
                             ),
-                        SizedBox(width: 10),
-                             Text(
-                          'Networking Settings',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: HexColor('333F64'),
-                          ),
-                        ),
+                            SizedBox(width: 10),
+                            Text(
+                              'Networking Settings',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: HexColor('333F64'),
+                              ),
+                            ),
                           ],
                         ),
-                       
+
                         //  SizedBox(width: Get.width * 0.2),
                         Icon(
                           Icons.arrow_forward_ios_rounded,
@@ -357,17 +363,17 @@ class ProfilePageView extends GetView<ProfilePageController> {
                             ),
                             SizedBox(width: 10),
                             Text(
-                          'Help & Support',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: HexColor('333F64'),
-                          ),
-                        ),
+                              'Help & Support',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: HexColor('333F64'),
+                              ),
+                            ),
                           ],
                         ),
                         //  SizedBox(width: 10),
-                        
+
                         //  SizedBox(width: Get.width * 0.31),
                         Icon(
                           Icons.arrow_forward_ios_rounded,

@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:dashed_outline/dashed_outline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../controllers/agenda_screen_controller.dart';
 
@@ -40,8 +41,14 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
           //
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Agenda', style: TextStyle(fontWeight: FontWeight.bold , color: HexColor('#333F64'))),
-            SizedBox(width: Get.width * 0.26),
+            Text(
+              'Agenda',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: HexColor('#333F64'),
+              ),
+            ),
+            Spacer(),
             GestureDetector(
               onTap: () {
                 Get.toNamed('/agenda-book-meeting');
@@ -49,7 +56,7 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
               child: Text(
                 '15 March 2025',
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   color: HexColor('#333F64'),
                   fontWeight: FontWeight.bold,
                 ),
@@ -420,62 +427,64 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
             child: Stack(
               children: [
                 Positioned(
-            top: -80,
-            right: -60,
-            child: Container(
-              width: 400,
-              height: 400,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(
-                  colors: [HexColor('#CBDCE6'), Colors.transparent],
-                  radius: 0.8,
+                  top: -80,
+                  right: -60,
+                  child: Container(
+                    width: 400,
+                    height: 400,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: RadialGradient(
+                        colors: [HexColor('#CBDCE6'), Colors.transparent],
+                        radius: 0.8,
+                      ),
+                    ),
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                      child: Container(
+                        color: const Color.fromARGB(221, 245, 245, 245),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
-                child: Container(color: const Color.fromARGB(221, 245, 245, 245)),
-              ),
-            ),
-          ),
 
-          // Second blurred ellipse (bottom-left)
-          Positioned(
-            top: 230,
-            right: -40,
-            child: Container(
-              width: 450,
-              height: 420,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(
-                  colors: [
-                    HexColor('#CBDCE6'),
-                    const Color.fromARGB(208, 255, 255, 255),
-                  ],
-                  radius: 0.9,
+                // Second blurred ellipse (bottom-left)
+                Positioned(
+                  top: 230,
+                  right: -40,
+                  child: Container(
+                    width: 450,
+                    height: 420,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: RadialGradient(
+                        colors: [
+                          HexColor('#CBDCE6'),
+                          const Color.fromARGB(208, 255, 255, 255),
+                        ],
+                        radius: 0.9,
+                      ),
+                    ),
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+                      child: Container(color: Colors.transparent),
+                    ),
+                  ),
                 ),
-              ),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
-                child: Container(color: Colors.transparent),
-              ),
-            ),
-          ),
 
                 Obx(() {
                   final items = controller.agendaItems;
-                
+
                   if (items.isEmpty) {
                     return Center(child: Text("No agenda items found"));
                   }
-                
+
                   return ListView.builder(
                     padding: EdgeInsets.symmetric(vertical: 8),
                     itemCount: items.length,
                     itemBuilder: (context, index) {
                       final item = items[index];
-                
+
                       // Free time item has a different layout
                       if (item.title == "Free Time") {
                         return Padding(
@@ -526,7 +535,7 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                                   dashThickness: 1,
                                 ),
                               ),
-                
+
                               //  SizedBox(width: Get.width * 0.08),
                               // Content container
                               Expanded(
@@ -537,7 +546,7 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                                   color: HexColor('#333F64'),
                                   strokeWidth: 1,
                                   child: Container(
-                                  //  margin: EdgeInsets.only(right: 16),
+                                    //  margin: EdgeInsets.only(right: 16),
                                     padding: EdgeInsets.symmetric(
                                       vertical: 16,
                                       horizontal: 16,
@@ -570,7 +579,7 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                           ),
                         );
                       }
-                
+
                       // Regular agenda item
                       return GestureDetector(
                         onTap: () {
@@ -583,7 +592,10 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                             children: [
                               // Time column (outside container)
                               Padding(
-                                padding: const EdgeInsets.only(left: 20.0, top: 8.0),
+                                padding: const EdgeInsets.only(
+                                  left: 20.0,
+                                  top: 8.0,
+                                ),
                                 child: Column(
                                   children: [
                                     Text(
@@ -642,9 +654,8 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: HexColor('#2D3142'),
-                                                  borderRadius: BorderRadius.circular(
-                                                    4,
-                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(4),
                                                 ),
                                                 child: Text(
                                                   item.type,
@@ -693,7 +704,9 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                                                 spacing: 8,
                                                 runSpacing: 8,
                                                 children:
-                                                    item.speakers.map((speaker) {
+                                                    item.speakers.map((
+                                                      speaker,
+                                                    ) {
                                                       return Row(
                                                         mainAxisSize:
                                                             MainAxisSize.min,
@@ -701,11 +714,14 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                                                           CircleAvatar(
                                                             radius: 10,
                                                             backgroundColor:
-                                                                Colors.grey[300],
+                                                                Colors
+                                                                    .grey[300],
                                                             child: Icon(
                                                               Icons.person,
                                                               size: 12,
-                                                              color: Colors.grey[700],
+                                                              color:
+                                                                  Colors
+                                                                      .grey[700],
                                                             ),
                                                           ),
                                                           SizedBox(width: 4),
@@ -732,22 +748,27 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                                                 children:
                                                     item.tags.map((tag) {
                                                       return Container(
-                                                        padding: EdgeInsets.symmetric(
-                                                          horizontal: 8,
-                                                          vertical: 4,
-                                                        ),
+                                                        padding:
+                                                            EdgeInsets.symmetric(
+                                                              horizontal: 8,
+                                                              vertical: 4,
+                                                            ),
                                                         decoration: BoxDecoration(
                                                           color:
                                                               tag == "Business"
-                                                                  ? Colors.grey[200]
+                                                                  ? Colors
+                                                                      .grey[200]
                                                                   : tag ==
                                                                       "Development"
                                                                   ? HexColor(
                                                                     '#CBDCE6',
                                                                   )
-                                                                  : tag == "Tags"
-                                                                  ? Colors.blue[200]
-                                                                  : Colors.grey[200],
+                                                                  : tag ==
+                                                                      "Tags"
+                                                                  ? Colors
+                                                                      .blue[200]
+                                                                  : Colors
+                                                                      .grey[200],
                                                           borderRadius:
                                                               BorderRadius.circular(
                                                                 4,
@@ -758,7 +779,8 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                                                           style: TextStyle(
                                                             fontSize: 12,
                                                             color:
-                                                                tag == "Business" ||
+                                                                tag ==
+                                                                            "Business" ||
                                                                         tag ==
                                                                             "Development"
                                                                     ? HexColor(
@@ -787,7 +809,9 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                                                     item.venue,
                                                     style: TextStyle(
                                                       fontSize: 12,
-                                                      color: HexColor('#333F64'),
+                                                      color: HexColor(
+                                                        '#333F64',
+                                                      ),
                                                     ),
                                                   ),
                                                 ],
@@ -812,7 +836,9 @@ class AgendaScreenView extends GetView<AgendaScreenController> {
                                             size: 20,
                                           ),
                                           onPressed:
-                                              () => controller.toggleBookmark(index),
+                                              () => controller.toggleBookmark(
+                                                index,
+                                              ),
                                         ),
                                       ),
                                     ],
